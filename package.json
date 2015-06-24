@@ -5,9 +5,8 @@
   "main": "cache.js",
   "repository": {
     "type": "git",
-    "url": "git@iceland.awox.com:hqarroum/cache.git"
+    "url": "https://github.com/HQarroum/Cache.git"
   },
-  "private": true,
   "scripts": {
     "test": "grunt test",
     "postinstall": "node_modules/bower/bin/bower install"

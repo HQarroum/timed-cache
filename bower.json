@@ -3,11 +3,13 @@
   "version": "1.0.2",
   "main": "cache.js",
   "authors": [
-    "Halim Qarroum <hqarroum@awox.com>"
+    "Halim Qarroum"
   ],
-  "description": "A basic time-based caching system.",
+  "description": "A minimalist time-based caching system.",
   "moduleType": [
-    "amd"
+    "amd",
+    "globals",
+    "node"
   ],
   "keywords": [
     "cache"
