@@ -71,7 +71,7 @@ It is however possible to specify what default value you would like the TTL to h
 ```javascript
 // The TTL is always expressed in milliseconds.
 // In this case it will be equal to `5` minutes.
-var cache = new Cache({ ttl: 300 * 1000 });
+var cache = new Cache({ defaultTtl: 300 * 1000 });
 ```
 
 You will then be able to interact with the storage by retrieving and inserting data.
