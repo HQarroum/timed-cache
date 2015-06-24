@@ -1,6 +1,6 @@
 ![Logo](https://cdn4.iconfinder.com/data/icons/database/PNG/256/Database_4.png)
 
-## Cache storage
+## Cache storage [![Build Status](https://travis-ci.org/HQarroum/Cache.svg?branch=master)](https://travis-ci.org/HQarroum/Cache)
 
 A minimalist time-based caching system.
 
