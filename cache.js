@@ -9,7 +9,7 @@
  */
 
  /**
-  * Exporting the `Graph` module appropriately given
+  * Exporting the `Cache` module appropriately given
   * the environment (AMD, Node.js and the browser).
   */
  (function (name, definition) {
