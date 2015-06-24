@@ -1,0 +1,26 @@
+{
+  "name": "cache",
+  "version": "1.0.2",
+  "main": "cache.js",
+  "authors": [
+    "Halim Qarroum <hqarroum@awox.com>"
+  ],
+  "description": "A basic time-based caching system.",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "cache"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.16",
+    "jasmine": "~2.2.1"
+  }
+}

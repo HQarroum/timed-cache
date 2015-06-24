@@ -1,0 +1,9 @@
+{
+  "directory": "libs/",
+  "analytics": false,
+  "registry": {
+    "search": [
+      "https://bower.herokuapp.com"
+    ]
+  }
+}
