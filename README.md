@@ -8,7 +8,7 @@ This storage module evicts cached key/value pairs based on their time-to-live.
 
 Current version: **1.0.1**
 
-Lead Maintainer: [Halim Qarroum](mailto:hqarroum@awox.com)
+Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
 ### Building
 
