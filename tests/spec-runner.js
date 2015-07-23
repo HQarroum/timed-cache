@@ -33,7 +33,6 @@
   // we are using RequireJS `window.onload()` has already been triggered so we have to manually call it again. This will
   // initialize the HTML Reporter and execute the environment.
   require(['boot'], function () {
-    console.log('toto 2');
     // Load the specs
     require(specs, function () {
       // Initialize the HTML Reporter and execute the environment (setup by `boot.js`)
