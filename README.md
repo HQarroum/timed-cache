@@ -110,7 +110,6 @@ You can customize the time-to-live value of a key/value pair at insertion time u
 
 ```javascript
 // Example of an insertion using a TTL expressed in milliseconds.
-// In this case, the 
 cache.put('foo', 'bar', { ttl: 5 * 1000 });
 ```
 
