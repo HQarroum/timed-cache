@@ -12,7 +12,9 @@
     "node"
   ],
   "keywords": [
+    "timed",
     "cache"
+    "storage"
   ],
   "ignore": [
     "**/.*",
