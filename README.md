@@ -7,7 +7,7 @@ A minimalist time-based caching system.
 
 This storage module evicts cached key/value pairs based on their time-to-live.
 
-Current version: **1.0.1**
+Current version: **1.0.2**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
