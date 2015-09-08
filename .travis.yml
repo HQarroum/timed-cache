@@ -9,3 +9,6 @@ before_install:
 install:
   - npm install
   - npm test
+addons:
+    code_climate:
+        repo_token: ea0fa9b3d69bb5f8e2c75709f4dd8cf53c38baa892391304f134de07fdf82246
