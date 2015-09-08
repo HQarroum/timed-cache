@@ -1,5 +1,5 @@
 {
-  "name": "cache",
+  "name": "timed-cache",
   "version": "1.0.3",
   "description": "A minimalist time-based caching system.",
   "main": "cache.js",

@@ -1,5 +1,5 @@
 {
-  "name": "cache",
+  "name": "timed-cache",
   "version": "1.0.2",
   "main": "cache.js",
   "authors": [
