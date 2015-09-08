@@ -11,6 +11,20 @@ Current version: **1.0.2**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
+## Install
+
+##### Using NPM
+
+```bash
+npm install --save timed-cache
+```
+
+##### Using Bower
+
+```bash
+bower install --save timed-cache
+```
+
 ### Building
 
 This project uses `Grunt` as its build system and `Bower` amd `NPM` as dependency management systems.
