@@ -4,8 +4,8 @@
  * ////////////////////////////////////////
  *
  * This module offers object caching mechanisms for
- * third-party modules. It also allows to set a time-to-live
- * to the cached objects.
+ * third-party modules. It allows to manage the lifecycle
+ * of cached objects by associating them with a time-to-live.
  */
 
  /**
@@ -18,7 +18,7 @@
         define(definition);
     } else if (typeof module !== 'undefined' && module.exports) {
         // Exporting the module for Node.js/io.js.
-        module.exports   = definition();
+        module.exports = definition();
     } else {
         var gl       = this;
         var instance = definition();
@@ -75,7 +75,7 @@
     // is defined by an internal default value
     // or a user value if it is passed to the
     // constructor.
-    this.defaultTtl = options && options.defaultTtl ?
+    this.defaultTtl = (options && options.defaultTtl) ?
         options.defaultTtl : 60 * 1000;
   };
 
@@ -111,7 +111,7 @@
     // We then create a new timeout function for
     // the new value.
     var handle = setTimeout(function () {
-      cache[key_] = null;
+      delete cache[key_];
       callback(key, value);
     }, ttl);
 
@@ -126,7 +126,7 @@
    * value otherwise.
    */
   Cache.prototype.get = function (key) {
-    var key_ = serialize(key);
+    var key_  = serialize(key);
     var value = cache[key_];
 
     if (value) {
@@ -139,7 +139,9 @@
    */
   Cache.prototype.clear = function () {
     for (var entry in cache) {
-      clearTimeout(cache[entry].handle);
+      if (has(cache, entry)) {
+        clearTimeout(cache[entry].handle);
+      }
     }
     cache = {};
   };
