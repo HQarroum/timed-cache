@@ -1,4 +1,6 @@
-![Logo](https://cdn4.iconfinder.com/data/icons/database/PNG/256/Database_4.png)
+<p align="center">
+ <img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Applications-database.svg/240px-Applications-database.svg.png" />
+</p>
 
 ## Cache storage
 [![Build Status](https://travis-ci.org/HQarroum/timed-cache.svg?branch=master)](https://travis-ci.org/HQarroum/timed-cache) [![Code Climate](https://codeclimate.com/repos/55e34093e30ba072de0013d2/badges/acc2df5cc7f78c301ad9/gpa.svg)](https://codeclimate.com/repos/55e34093e30ba072de0013d2/feed)
