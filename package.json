@@ -5,7 +5,7 @@
   "main": "cache.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HQarroum/Cache.git"
+    "url": "https://github.com/HQarroum/timed-cache.git"
   },
   "scripts": {
     "test": "grunt test",
@@ -19,7 +19,7 @@
   "author": "Halim Qarroum",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HQarroum/Cache/issues"
+    "url": "https://github.com/HQarroum/timed-cache/issues"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
