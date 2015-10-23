@@ -15,7 +15,7 @@ module.exports = function (grunt) {
 	},
 	jshint: {
 	    dist: {
-		src: ['Gruntfile.js', 'cache.js']
+		src: ['*.js']
 	    },
 	    test: {
 		src: ['tests/*.js']
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 	uglify: {
 	    dist: {
 		src: 'cache.js',
-		dest: 'dist/cache.js'
+		dest: 'dist/cache.min.js'
 	    }
 	},
 	jasmine: {
