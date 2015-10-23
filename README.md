@@ -25,47 +25,6 @@ npm install --save timed-cache
 bower install --save timed-cache
 ```
 
-### Building
-
-This project uses `Grunt` as its build system and `Bower` amd `NPM` as dependency management systems.
-
-Grunt uses the `Gruntfile.js` file to actually build the project, and will as a *default* task copy the produced binaries in the `dist/` folder.
-
-Grunt relies on `Node.js` to execute the tasks required to build the project, so you will need to ensure that it is available on your build machine.
-
-To install Grunt, its modules, and fetch the Bower dependencies of the project you will need to run the following command :
-
-```bash
-# This will install Grunt tasks and fetch the
-# required Bower module as a postinstall task.
-npm install
-```
-
-To run a build using the default task, simply run the following :
-
-```bash
-grunt
-```
-
-### Deployment
-
-If you want to version the produced binaries, you can use Grunt to deploy this project in two ways :
-
- - Pushing the built binaries to the `release` branch associated with the Git repository of this project
- - Push the binaries to the `release` branch, and additionally, tag the binaries with the project's `package.json` version
- 
-To deploy the project in a continuous integration system, or simply using your development machine, you can use one, or both of the following commands :
-
-```bash
-# This will build the project and push the binaries to
-# the `release` branch.
-grunt release
-
-# This will do the same as the previous command, but will
-# also tag the binaries on the remote Git origin.
-grunt tag
-```
-
 ## Usage
 
 You will first have to require the `cache` module in your application in order to use it.
@@ -137,6 +96,47 @@ cache.put('baz', 'bar', {
     console.log(key, value, 'evicted !');
   }
 });
+```
+
+### Building
+
+This project uses `Grunt` as its build system and `Bower` amd `NPM` as dependency management systems.
+
+Grunt uses the `Gruntfile.js` file to actually build the project, and will as a *default* task copy the produced binaries in the `dist/` folder.
+
+Grunt relies on `Node.js` to execute the tasks required to build the project, so you will need to ensure that it is available on your build machine.
+
+To install Grunt, its modules, and fetch the Bower dependencies of the project you will need to run the following command :
+
+```bash
+# This will install Grunt tasks and fetch the
+# required Bower module as a postinstall task.
+npm install
+```
+
+To run a build using the default task, simply run the following :
+
+```bash
+grunt
+```
+
+### Deployment
+
+If you want to version the produced binaries, you can use Grunt to deploy this project in two ways :
+
+ - Pushing the built binaries to the `release` branch associated with the Git repository of this project
+ - Push the binaries to the `release` branch, and additionally, tag the binaries with the project's `package.json` version
+ 
+To deploy the project in a continuous integration system, or simply using your development machine, you can use one, or both of the following commands :
+
+```bash
+# This will build the project and push the binaries to
+# the `release` branch.
+grunt release
+
+# This will do the same as the previous command, but will
+# also tag the binaries on the remote Git origin.
+grunt tag
 ```
 
 ## Tests
