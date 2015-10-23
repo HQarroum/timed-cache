@@ -5,12 +5,12 @@ define(['cache'], function (Cache) {
     /**
      * Configuration test plan.
      */
-    describe('Cache storage', function() {
+    describe('Cache storage', function () {
 
         /**
          * Insert test.
          */
-        it('should be able to insert and retrieve new key/value pair', function() {
+        it('should be able to insert and retrieve new key/value pair', function () {
             cache.put('foo', 'bar');
             cache.put('foo', 'baz');
             cache.put('foo', { foo: 'bar' });
@@ -24,7 +24,7 @@ define(['cache'], function (Cache) {
         /**
          * Object key insertion.
          */
-        it('should be able to insert and retrieve key objects', function() {
+        it('should be able to insert and retrieve key objects', function () {
             cache.put({ foo: 'bar' }, { foo: 'baz'});
             cache.put({ bar: 'baz' }, { bar: 'foo' });
 
@@ -35,7 +35,7 @@ define(['cache'], function (Cache) {
         /**
          * Object key insertion.
          */
-        it('should be able to be cleared', function() {
+        it('should be able to be cleared', function () {
             cache.put('foo', 'bar');
             cache.clear();
 
