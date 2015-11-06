@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 	clean: {
-	    dist: 'dist/*.js',
+	    dist: 'dist/*.js'
 	},
 	jshint: {
 	    dist: {
