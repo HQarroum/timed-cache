@@ -8,7 +8,7 @@ define(['cache'], function (Cache) {
     describe('Cache storage', function () {
 
         /**
-         * Insert test.
+         * Insertion test.
          */
         it('should be able to insert and retrieve new key/value pair', function () {
             cache.put('foo', 'bar');
@@ -33,7 +33,7 @@ define(['cache'], function (Cache) {
         });
 
         /**
-         * Object key insertion.
+         * Cache clearance.
          */
         it('should be able to be cleared', function () {
             cache.put('foo', 'bar');
@@ -57,7 +57,7 @@ define(['cache'], function (Cache) {
         it('should be able to set a ttl on a cached object', function (done) {
             cache.put('foo', 'bar', { ttl: ttl });
 
-            // Awaiting for the element to be erased.
+            // Awaiting for the element to be evicted.
             setTimeout(function () {
                 expect(cache.get('foo')).toBeUndefined();
                 done();
@@ -76,7 +76,7 @@ define(['cache'], function (Cache) {
             // Inserting an element.
             cache.put('foobar', 'baz');
 
-            // Awaiting for the element to be erased.
+            // Awaiting for the element to be evicted.
             setTimeout(function () {
                 expect(cache.get('foobar')).toBeUndefined();
                 // Restoring the default cached elements ttl.
@@ -86,9 +86,9 @@ define(['cache'], function (Cache) {
         });
 
         /**
-         * Cache insertion using the default TTL.
+         * Callback upon element eviction.
          */
-        it('should be able to call back a function upon element removal', function (done) {
+        it('should be able to call back a function upon element eviction', function (done) {
             // We use the second as a unit of measure for
             // the elasped time to avoid delays caused by the
             // Javascript event loop.
