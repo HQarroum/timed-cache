@@ -85,9 +85,9 @@
    */
   var serialize = function (key) {
     if (isObject(key)) {
-      return JSON.stringify(key);
+      return (JSON.stringify(key));
     }
-    return key;
+    return (key);
   };
 
   /**
@@ -97,6 +97,7 @@
     var ttl = (options ? options.ttl : undefined) || this.defaultTtl;
     var callback = (options ? options.callback : undefined) || function () {};
     var key_ = serialize(key);
+    var self = this;
 
     // Checking whether the given key already
     // has a value.
@@ -111,13 +112,12 @@
     // We then create a new timeout function for
     // the new value.
     var handle = setTimeout(function () {
-      delete cache[key_];
-      callback(key, value);
+      self.remove(key);
     }, ttl);
 
     // And we save the value into the cache storage
     // with the handle.
-    cache[key_] = { handle: handle, data: value };
+    cache[key_] = { handle: handle, data: value, callback: callback };
   };
 
   /**
@@ -126,11 +126,25 @@
    * value otherwise.
    */
   Cache.prototype.get = function (key) {
+    var value = cache[serialize(key)];
+
+    if (value) {
+      return (value.data);
+    }
+  };
+
+  /**
+   * Clears the cache entry associated
+   * with the given `key`.
+   */
+  Cache.prototype.remove = function (key) {
     var key_  = serialize(key);
     var value = cache[key_];
 
     if (value) {
-      return value.data;
+      clearTimeout(value.handle);
+      delete cache[key_];
+      value.callback(key, value.data);
     }
   };
 

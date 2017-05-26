@@ -33,15 +33,47 @@ define(['cache'], function (Cache) {
         });
 
         /**
+         * Cache entry removal.
+         */
+        it('should be able to remove cache entries by key', function () {
+            cache.put('hello', 'world');
+            cache.put({ key: 'hello' }, 'world');
+
+            // Removing entries
+            cache.remove('hello');
+            cache.remove({ key: 'hello' });
+
+            expect(cache.get('hello')).toBe(undefined);
+            expect(cache.get({ key: 'hello' })).toBe(undefined);
+        });
+
+        /**
+         * Cache entry removal notification.
+         */
+        it('should be able to get notified when an entry has been removed', function () {
+            cache.put('hello', 'world', {
+              callback: function (k, v) {
+                expect(k).toBe('hello');
+                expect(v).toBe('world');
+                expect(cache.get('hello')).toBe(undefined);
+              }
+            });
+            cache.remove('hello');
+        });
+
+        /**
          * Cache clearance.
          */
         it('should be able to be cleared', function () {
-            cache.put('foo', 'bar');
+            // Inserting 1000 elements.
+            for (var i = 0; i < 1000; ++i) {
+              cache.put('foo' + i, 'bar');
+            }
+            // Clearing the cache.
             cache.clear();
-
+            // Testing the final size.
             expect(cache.size()).toBe(0);
         });
-    
     });
 
     describe('Time-based cache', function () {
