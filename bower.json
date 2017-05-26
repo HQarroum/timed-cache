@@ -1,9 +1,9 @@
 {
   "name": "timed-cache",
-  "version": "1.0.6",
+  "version": "1.0.5",
   "main": "cache.js",
   "authors": [
-    "Halim Qarroum <hqm.post@gmail.com>"
+    "Halim Qarroum"
   ],
   "description": "A minimalist time-based caching system.",
   "moduleType": [
