@@ -8,7 +8,7 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 	clean: {
-	    dist: 'dist/*.js'
+	    dist: 'dist/*'
 	},
 	jshint: {
 	    dist: {
@@ -38,13 +38,6 @@ module.exports = function (grunt) {
 			path: 'reports/junit/jasmine'
 		    }
 		}
-	    }
-	},
-	copy: {
-	    dist: {
-		files: [
-		    { expand: true, src: ['./*.json'], dest: 'dist/' }
-		]
 	    }
 	}
     });
