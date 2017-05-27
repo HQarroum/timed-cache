@@ -100,6 +100,21 @@ cache.put('baz', 'bar', {
 });
 ```
 
+### Element removal
+
+It is possible to remove a cache entry before its time-to-live is reached, by using the `.remove` primitive :
+
+```javascript
+cache.put('foo', 'bar', {
+ callback: function (key, value) {
+  console.log(key, value, 'removed !');
+ }
+});
+cache.remove('foo');
+```
+
+In this case, the callback passed to a `.put` will be called if the user removed the inserted entry.
+
 ### Building
 
 This project uses `Grunt` as its build system and `Bower` amd `NPM` as dependency management systems.
