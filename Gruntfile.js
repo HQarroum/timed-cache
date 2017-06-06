@@ -24,25 +24,17 @@ module.exports = function (grunt) {
 		dest: 'dist/cache.min.js'
 	    }
 	},
-	jasmine: {
-	    dist: {
-		options: {
-		    specs: ['tests/cache-spec.js'],
-		    template: require('grunt-template-jasmine-requirejs'),
-		    templateOptions: {
-			requireConfig: {
-			    buildPath: '../'
-			}
-		    },
-		    junit: {
-			path: 'reports/junit/jasmine'
-		    }
-		}
-	    }
-	}
+  mochaTest: {
+    test: {
+      src: ['tests/**/*.js'],
+      options: {
+        timeout: 3000
+      }
+    }
+  }
     });
 
     // Registering the tasks.
-    grunt.registerTask('test', ['jasmine']);
+    grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'test']);
 };
