@@ -1,14 +1,16 @@
 language: node_js
 node_js:
-  - '0.12'
-  - '0.10'
   - '6'
+  - '4'
+  - '0.12'
 before_install:
-  - npm install -g grunt-cli bower
+  - npm install -g grunt-cli istanbul codecov
 install:
-  - bower install
   - npm install
+script:
   - npm test
+  - istanbul cover ./node_modules/mocha/bin/_mocha tests --reporter lcovonly -- -R spec
+  - codecov
 addons:
     code_climate:
         repo_token: ea0fa9b3d69bb5f8e2c75709f4dd8cf53c38baa892391304f134de07fdf82246
