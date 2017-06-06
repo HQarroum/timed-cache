@@ -97,7 +97,7 @@ describe('Time-based cache', function () {
     /**
      * The elements time-to-live.
      */
-    var ttl = 2 * 1000;
+    var ttl = 1 * 1000;
 
     /**
      * Cache insertion using a TTL.
