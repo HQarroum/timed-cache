@@ -1,4 +1,3 @@
-var should = require('should');
 var expect = require('expect');
 var Cache = require('../cache.js');
 
