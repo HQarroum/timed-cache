@@ -32,7 +32,6 @@
     "grunt-mocha-test": "^0.13.2",
     "load-grunt-tasks": "^3.1.0",
     "mocha": "^3.4.2",
-    "should": "^11.2.1",
     "time-grunt": "^1.2.1"
   }
 }
