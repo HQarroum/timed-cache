@@ -13,6 +13,7 @@
   * the environment (AMD, Node.js and the browser).
   */
  (function (name, definition) {
+    /* istanbul ignore next */
     if (typeof define === 'function' && define.amd) {
         // Defining the module in an AMD fashion.
         define(definition);
