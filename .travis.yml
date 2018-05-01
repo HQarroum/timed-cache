@@ -3,6 +3,7 @@ node_js:
   - '7'
   - '6'
   - '4'
+  - '10'
 before_install:
   - npm install -g grunt-cli istanbul codecov
 install:
