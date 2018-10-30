@@ -7,31 +7,31 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     grunt.initConfig({
-	clean: {
-	    dist: 'dist/*'
-	},
-	jshint: {
-	    dist: {
-		src: ['*.js']
-	    },
-	    test: {
-		src: ['tests/*.js']
-	    }
-	},
-	uglify: {
-	    dist: {
-		src: 'cache.js',
-		dest: 'dist/cache.min.js'
-	    }
-	},
-  mochaTest: {
-    test: {
-      src: ['tests/**/*.js'],
-      options: {
-        timeout: 3000
-      }
-    }
-  }
+        clean: {
+            dist: 'dist/*'
+        },
+        jshint: {
+            dist: {
+                src: ['*.js']
+            },
+            test: {
+                src: ['tests/*.js']
+            }
+        },
+        uglify: {
+            dist: {
+                src: 'cache.js',
+                dest: 'dist/cache.min.js'
+            }
+        },
+        mochaTest: {
+            test: {
+                src: ['tests/**/*.js'],
+                options: {
+                    timeout: 3000
+                }
+            }
+        }
     });
 
     // Registering the tasks.

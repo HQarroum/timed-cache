@@ -55,6 +55,29 @@ describe('Cache storage', function () {
     });
 
     /**
+     * Iterables as keys.
+     */
+    it('should be able to insert iterables as keys', function () {
+        var object = { foo: 'bar', bar: 'baz' };
+        var array  = [1, 'a', 3, 4];
+
+        // Inserting values.
+        cache.put({ foo: 'bar', bar: 'baz' }, 'foo');
+        cache.put([1, 'a', 3, 4], 'bar');
+        cache.put('foo', 'bar');
+        cache.put(1, 'bar');
+
+        // Testing presence of iterable keys.
+        expect(cache.get({ foo: 'bar', bar: 'baz' })).toEqual('foo');
+        expect(cache.get(object)).toEqual('foo');
+        expect(cache.get([1, 'a', 3, 4])).toEqual('bar');
+        expect(cache.get([1, 'a', 4, 3])).not.toEqual('bar');
+        expect(cache.get(array)).toEqual('bar');
+        expect(cache.get('foo')).toEqual('bar');
+        expect(cache.get(1)).toEqual('bar');
+    });
+
+    /**
      * Cache entry removal notification.
      */
     it('should be able to get notified when an entry has been removed', function () {

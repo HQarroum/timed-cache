@@ -11,7 +11,7 @@ A minimalist time-based caching system.
 
 This storage module evicts cached key/value pairs based on their time-to-live.
 
-Current version: **1.1.0**
+Current version: **1.1.1**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
@@ -73,7 +73,7 @@ cache.get('bar'); // Returns 'baz'
 cache.get('foo'); // Returns the object { foo: 'bar' }
 ```
 
-It is also possible to use an object as a key as long as it is serializable using `JSON.stringify` :
+It is also possible to use an object as a key as long as it is serializable using [`JSON.stringify`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/JSON/stringify) :
 
 ```javascript
 cache.put({ foo: 'bar' }, { bar: 'baz' });

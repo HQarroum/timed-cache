@@ -1,7 +1,7 @@
 /**
- * ////////////////////////////////////////
- * //////////// Cache  module /////////////
- * ////////////////////////////////////////
+ * ///////////////////////////////////////
+ * //////////// Cache module /////////////
+ * ///////////////////////////////////////
  *
  * This module offers object caching mechanisms for
  * third-party modules. It allows to manage the lifecycle
@@ -15,39 +15,35 @@
  (function (name, definition) {
     /* istanbul ignore next */
     if (typeof define === 'function' && define.amd) {
-        // Defining the module in an AMD fashion.
-        define(definition);
+      // Defining the module in an AMD fashion.
+      define(definition);
     } else if (typeof module !== 'undefined' && module.exports) {
-        // Exporting the module for Node.js/io.js.
-        module.exports = definition();
+      // Exporting the module for Node.js/io.js.
+      module.exports = definition();
     } else {
-        var gl       = this;
-        var instance = definition();
-        var old      = gl[name];
+      var gl       = this;
+      var instance = definition();
+      var old      = gl[name];
 
-        /**
-         * Allowing to scope the module
-         * avoiding global namespace pollution.
-         */
-        instance.noConflict = function () {
-            gl[name] = old;
-            return instance;
-        };
-        // Exporting the module in the global
-        // namespace in a browser context.
-        gl[name] = instance;
+      /**
+       * Allowing to scope the module
+       * avoiding global namespace pollution.
+       */
+      instance.noConflict = function () {
+        gl[name] = old;
+        return instance;
+      };
+      // Exporting the module in the global
+      // namespace in a browser context.
+      gl[name] = instance;
     }
  })('Cache', function () {
 
-  var cache = {};
-
   /**
-   * Returns whether the given object
-   * is of type `object`.
+   * We use an object literal ads the
+   * internal storage.
    */
-  var isObject = function (obj) {
-    return typeof obj === 'object' && !!obj;
-  };
+  var cache = {};
 
   /**
    * Shortcut function for checking if an object has
@@ -55,21 +51,14 @@
    * (in other words, not on a prototype).
    */
   var has = function (obj, key) {
-    return obj !== null && Object.prototype.hasOwnProperty.call(obj, key);
+    return (obj !== null && Object.prototype.hasOwnProperty.call(obj, key));
   };
 
   /**
-   * Retrieve the names of an object's own properties.
-   * Delegates to ECMAScript 5's native `Object.keys`
+   * Cache constructor.
+   * @param {*} options the `options` object
+   * holder used by the cache implementation. 
    */
-  var keys = function (obj) {
-    if (!isObject(obj)) return [];
-    if (Object.keys) return Object.keys(obj);
-    var keys = [];
-    for (var key in obj) if (has(obj, key)) keys.push(key);
-    return keys;
-  };
-
   var Cache = function (options) {
     // The default cached objects expiration
     // delay is expressed in milliseconds and
@@ -78,6 +67,9 @@
     // constructor.
     this.defaultTtl = (options && options.defaultTtl) ?
         options.defaultTtl : 60 * 1000;
+    // A prefix used to forbid access to internal properties
+    // of the object storage.
+    this.prefix = '__cache__';
   };
 
   /**
@@ -85,10 +77,10 @@
    * can be cached transparently.
    */
   var serialize = function (key) {
-    if (isObject(key)) {
-      return (JSON.stringify(key));
+    if (typeof key !== 'string') {
+      return (this.prefix + JSON.stringify(key));
     }
-    return (key);
+    return (this.prefix + key);
   };
 
   /**
@@ -128,10 +120,7 @@
    */
   Cache.prototype.get = function (key) {
     var value = cache[serialize(key)];
-
-    if (value) {
-      return (value.data);
-    }
+    return (value && value.data);
   };
 
   /**
@@ -166,8 +155,8 @@
    * terms of referenced elements.
    */
   Cache.prototype.size = function () {
-    return keys(cache).length;
+    return Object.keys(cache).length;
   };
 
-  return Cache;
+  return (Cache);
  });
