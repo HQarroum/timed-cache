@@ -6,6 +6,7 @@
 
 [![Build Status](https://travis-ci.org/HQarroum/timed-cache.svg?branch=master)](https://travis-ci.org/HQarroum/timed-cache)
 [![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/timed-cache/badge)](https://www.codefactor.io/repository/github/hqarroum/timed-cache)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHQarroum%2Ftimed-cache.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHQarroum%2Ftimed-cache?ref=badge_shield)
 
 A minimalist time-based caching system.
 
@@ -152,3 +153,7 @@ grunt test
 # Using NPM
 npm test
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHQarroum%2Ftimed-cache.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FHQarroum%2Ftimed-cache?ref=badge_large)
