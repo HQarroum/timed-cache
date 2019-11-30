@@ -104,6 +104,14 @@ describe('Cache storage', function () {
         // Testing the final size.
         expect(cache.size()).toBe(0);
     });
+
+    it('should be able to load data when key is missing', function() {
+        expect(cache.get('foo')).toBeUndefined();
+        expect(cache.get('foo', 'bar')).toBeUndefined();
+        expect(cache.get('foo', function() {
+            return 'bar';
+        })).toEqual('bar');
+    });
 });
 
 describe('Time-based cache', function () {
@@ -172,5 +180,14 @@ describe('Time-based cache', function () {
                 done();
             }
         });
+    });
+
+    it('should be able to load data when key is missing with custom ttl', function() {
+        expect(cache.get('foo', function() {
+            return 'bar';
+        }, {ttl: ttl})).toEqual('bar');
+        setTimeout(function() {
+            expect(cache.get('foo')).toBeUndefined();
+        }, cache.defaultTtl + 1);
     });
 });

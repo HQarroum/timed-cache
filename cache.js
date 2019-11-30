@@ -118,8 +118,16 @@
    * given key if it exists, returns an undefined
    * value otherwise.
    */
-  Cache.prototype.get = function (key) {
+  Cache.prototype.get = function (key, cb, options) {
     var value = cache[serialize(key)];
+
+    if (!value && (typeof cb === 'function')) {
+      var data = cb.apply(this);
+      this.put(key, data, options);
+
+      return data;
+    }
+
     return (value && value.data);
   };
 
