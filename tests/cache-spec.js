@@ -104,6 +104,18 @@ describe('Cache storage', function () {
         // Testing the final size.
         expect(cache.size()).toBe(0);
     });
+
+    /**
+     * Resolver function invokation.
+     */
+    it('should be able to load data when key is missing using a provided resolver function', function () {
+        // Simple retrieval.
+        expect(cache.get('foo')).toBeUndefined();
+        // Simple retrieval with non-function second argument.
+        expect(cache.get('foo', 'bar')).toBeUndefined();
+        // Simple retrieval with a second argument as a function. 
+        expect(cache.get('foo', () => 'bar')).toEqual('bar');
+    });
 });
 
 describe('Time-based cache', function () {
@@ -172,5 +184,15 @@ describe('Time-based cache', function () {
                 done();
             }
         });
+    });
+
+    /**
+     * Callback upon element eviction.
+     */
+    it('should be able to load data when key is missing with custom ttl and a provided resolver function', function() {
+        expect(cache.get('foo', () => 'bar', { ttl })).toEqual('bar');
+        setTimeout(function() {
+            expect(cache.get('foo')).toBeUndefined();
+        }, cache.defaultTtl + 1);
     });
 });
