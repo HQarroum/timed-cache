@@ -43,14 +43,14 @@
    * We use an object literal ads the
    * internal storage.
    */
-  let cache = {};
+  var cache = {};
 
   /**
    * Shortcut function for checking if an object has
    * a given property directly on itself
    * (in other words, not on a prototype).
    */
-  const has = function (obj, key) {
+  var has = function (obj, key) {
     return (obj !== null && Object.prototype.hasOwnProperty.call(obj, key));
   };
 
@@ -58,7 +58,7 @@
    * If the key is an object, we serialize it, so it
    * can be cached transparently.
    */
-  const serialize = function (key) {
+  var serialize = function (key) {
     if (typeof key !== 'string') {
       return (this.prefix + JSON.stringify(key));
     }
@@ -70,7 +70,7 @@
    * @param {*} options the `options` object
    * holder used by the cache implementation. 
    */
-  const Cache = function (options) {
+  var Cache = function (options) {
     // The default cached objects expiration
     // delay is expressed in milliseconds and
     // is defined by an internal default value
@@ -87,9 +87,10 @@
    * Puts a key/value pair into the cache storage.
    */
   Cache.prototype.put = function (key, value, options) {
-    const ttl  = (options ? options.ttl : undefined) || this.defaultTtl;
-    const cb   = (options ? options.callback : undefined) || function () {};
-    const key_ = serialize(key);
+    var ttl  = (options ? options.ttl : undefined) || this.defaultTtl;
+    var cb   = (options ? options.callback : undefined) || function () {};
+    var key_ = serialize(key);
+    var self = this;
 
     // Checking whether the given key already
     // has a value.
@@ -103,7 +104,9 @@
 
     // We then create a new timeout function for
     // the new value.
-    const handle = setTimeout(() => this.remove(key), ttl);
+    var handle = setTimeout(function () {
+      return (self.remove(key));
+    }, ttl);
 
     // And we save the value into the cache storage
     // with the handle.
@@ -116,7 +119,7 @@
    * value otherwise.
    */
   Cache.prototype.get = function (key, fn, opts) {
-    const value = cache[serialize(key)];
+    var value = cache[serialize(key)];
 
     // If the value does not exist, but there's a resolver
     // function, we invoke it for a result.
@@ -134,8 +137,8 @@
    * with the given `key`.
    */
   Cache.prototype.remove = function (key) {
-    const key_  = serialize(key);
-    const value = cache[key_];
+    var key_  = serialize(key);
+    var value = cache[key_];
 
     if (value) {
       clearTimeout(value.handle);
