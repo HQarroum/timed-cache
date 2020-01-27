@@ -131,7 +131,7 @@ describe('Time-based cache', function () {
     /**
      * The elements time-to-live.
      */
-    var ttl = 1 * 1000;
+    const ttl = 1 * 1000;
 
     /**
      * Cache insertion using a TTL.
@@ -189,10 +189,21 @@ describe('Time-based cache', function () {
     /**
      * Callback upon element eviction.
      */
-    it('should be able to load data when key is missing with custom ttl and a provided resolver function', function() {
+    it('should be able to load data when key is missing with custom ttl and a provided resolver function', function (done) {
+        var originalTtl = cache.defaultTtl;
+
+        // Updating the default ttl.
+        cache.defaultTtl = ttl;
+
+        // Inserting a new value using the resolver function.
         expect(cache.get('foo', () => 'bar', { ttl })).toEqual('bar');
+
+        // Waiting for the key to be evicted.
         setTimeout(function() {
             expect(cache.get('foo')).toBeUndefined();
+            // Restoring the default cached elements ttl.
+            cache.defaultTtl = originalTtl;
+            done();
         }, cache.defaultTtl + 1);
     });
 });
