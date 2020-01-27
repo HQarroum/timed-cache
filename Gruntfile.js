@@ -11,6 +11,9 @@ module.exports = function (grunt) {
             dist: 'dist/*'
         },
         jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
             dist: {
                 src: ['*.js']
             },
