@@ -89,7 +89,7 @@
   Cache.prototype.put = function (key, value, options) {
     var ttl  = (options ? options.ttl : undefined) || this.defaultTtl;
     var cb   = (options ? options.callback : undefined) || function () {};
-    var key_ = serialize(key);
+    var key_ = serialize.call(this, key);
     var self = this;
 
     // Checking whether the given key already
@@ -119,7 +119,7 @@
    * value otherwise.
    */
   Cache.prototype.get = function (key, fn, opts) {
-    var value = cache[serialize(key)];
+    var value = cache[serialize.call(this, key)];
 
     // If the value does not exist, but there's a resolver
     // function, we invoke it for a result.
@@ -137,7 +137,7 @@
    * with the given `key`.
    */
   Cache.prototype.remove = function (key) {
-    var key_  = serialize(key);
+    var key_  = serialize.call(this, key);
     var value = cache[key_];
 
     if (value) {
