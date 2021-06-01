@@ -8,8 +8,8 @@
     "url": "https://github.com/HQarroum/timed-cache.git"
   },
   "scripts": {
-    "test": "grunt test",
-    "build": "grunt",
+    "test": "npx grunt test",
+    "build": "npx grunt",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
