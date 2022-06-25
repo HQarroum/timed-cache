@@ -88,9 +88,7 @@ It is also possible to define a callback for each inserted key/value pair to be 
 ```javascript
 cache.put('baz', 'bar', {
   ttl: 5 * 1000,
-  callback: function (key, value) {
-    console.log(key, value, 'evicted !');
-  }
+  callback: (key, value) => console.log(`${key} ${value} evicted !`)
 });
 ```
 
@@ -100,10 +98,9 @@ It is possible to remove a cache entry before its time-to-live is reached, by us
 
 ```javascript
 cache.put('foo', 'bar', {
- callback: function (key, value) {
-  console.log(key, value, 'removed !');
- }
+ callback: (key, value) => console.log(`${key} ${value} removed !`)
 });
+
 cache.remove('foo');
 ```
 
