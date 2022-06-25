@@ -71,7 +71,7 @@ class Cache {
   
     // And we save the value into the cache storage
     // with the handle.
-    this.cache[key_] = { handle: handle, data: value, callback };
+    this.cache[key_] = { handle, data: value, callback };
   }
 
   /**
@@ -89,8 +89,8 @@ class Cache {
    * with the given `key`.
    */
   remove(key) {
-    var key_  = serialize.call(this, key);
-    var value = this.cache[key_];
+    const key_  = serialize.call(this, key);
+    const value = this.cache[key_];
   
     if (value) {
       clearTimeout(value.handle);
@@ -103,7 +103,7 @@ class Cache {
    * Clears the internal cache.
    */
   clear() {
-    for (var entry in this.cache) {
+    for (const entry in this.cache) {
       if (has(this.cache, entry)) {
         clearTimeout(this.cache[entry].handle);
       }

@@ -1,6 +1,6 @@
-<br /><p align="center">
+<br /><br /><p align="center">
  <img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Applications-database.svg/240px-Applications-database.svg.png" />
-</p><br />
+</p><br /><br />
 
 ## Cache storage
 
