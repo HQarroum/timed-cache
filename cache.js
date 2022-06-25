@@ -10,8 +10,7 @@
 
 /**
  * Shortcut function for checking if an object has
- * a given property directly on itself
- * (in other words, not on a prototype).
+ * a given property directly on itself.
  */
 const has = (obj, key) => obj !== null && Object.prototype.hasOwnProperty.call(obj, key);
 
@@ -32,6 +31,9 @@ const serialize = function (key) {
   return (prefix + key);
 };
 
+/**
+ * The `timed-cache` implementation.
+ */
 class Cache {
 
   /**
