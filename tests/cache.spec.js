@@ -52,8 +52,8 @@ describe('Cache storage', () => {
       cache.remove('hello');
       cache.remove({ key: 'hello' });
 
-      expect(cache.get('hello')).toBe(undefined);
-      expect(cache.get({ key: 'hello' })).toBe(undefined);
+      expect(cache.get('hello')).toBeUndefined();
+      expect(cache.get({ key: 'hello' })).toBeUndefined();
     });
 
     /**
@@ -87,7 +87,7 @@ describe('Cache storage', () => {
         callback: (k, v) => {
           expect(k).toBe('hello');
           expect(v).toBe('world');
-          expect(cache.get('hello')).toBe(undefined);
+          expect(cache.get('hello')).toBeUndefined();
         }
       });
       cache.remove('hello');
@@ -134,7 +134,7 @@ describe('Time-based cache', () => {
 
     // Awaiting for the element to be evicted.
     setTimeout(() => {
-      expect(cache.get('foo')).toBe(undefined);
+      expect(cache.get('foo')).toBeUndefined();
       done();
     }, ttl + 1);
   });
@@ -153,7 +153,7 @@ describe('Time-based cache', () => {
 
     // Awaiting for the element to be evicted.
     setTimeout(() => {
-      expect(cache.get('foobar')).toBe(undefined);
+      expect(cache.get('foobar')).toBeUndefined();
       // Restoring the default cached elements ttl.
       cache.defaultTtl = originalTtl;
       done();
