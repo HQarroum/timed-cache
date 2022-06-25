@@ -1,15 +1,15 @@
 language: node_js
 node_js:
-  - '10'
   - '12'
   - '14'
+  - '16'
 before_install:
-  - npm install -g grunt-cli istanbul codecov
+  - npm install -g codecov
 install:
   - npm install
 script:
   - npm test
-  - istanbul cover ./node_modules/mocha/bin/_mocha tests --reporter lcovonly -- -R spec
+  - npm run lint
   - codecov
 addons:
     code_climate:

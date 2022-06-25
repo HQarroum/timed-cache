@@ -12,22 +12,12 @@ A minimalist time-based caching system.
 
 This storage module evicts cached key/value pairs based on their time-to-live.
 
-Current version: **1.1.5**
-
-Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
+Current version: **2.0.0**
 
 ## Install
 
-##### Using NPM
-
 ```bash
 npm install --save timed-cache
-```
-
-##### Using Bower
-
-```bash
-bower install --save timed-cache
 ```
 
 ## Usage
@@ -41,8 +31,9 @@ Basic operations you can perform on an instance of a `Cache` are insertion, retr
 To do so, you will need to create a new instance of the cache, by calling its constructor :
 
 ```javascript
-var cache = new Cache();
+const cache = new Cache();
 ```
+
 Note that by default, a key/value pair will be held by the cache storage for `60` seconds before being evicted.
 
 It is however possible to specify what default value you would like the TTL to have when creating the storage :
@@ -50,7 +41,7 @@ It is however possible to specify what default value you would like the TTL to h
 ```javascript
 // The TTL is always expressed in milliseconds.
 // In this case it will be equal to `5` minutes.
-var cache = new Cache({ defaultTtl: 300 * 1000 });
+const cache = new Cache({ defaultTtl: 300 * 1000 });
 ```
 
 You will then be able to interact with the storage by retrieving and inserting data.
@@ -117,43 +108,6 @@ cache.remove('foo');
 ```
 
 In this case, the callback passed to a `.put` will be called if the user removed the inserted entry.
-
-### Building
-
-This project uses `Grunt` as its build system and `Bower` amd `NPM` as dependency management systems.
-
-Grunt uses the `Gruntfile.js` file to actually build the project, and will as a *default* task copy the produced binaries in the `dist/` folder.
-
-Grunt relies on `Node.js` to execute the tasks required to build the project, so you will need to ensure that it is available on your build machine.
-
-To install Grunt, its modules, and fetch the Bower dependencies of the project you will need to run the following command :
-
-```bash
-# This will install Grunt tasks and fetch the
-# required Bower module as a postinstall task.
-npm install
-```
-
-To run a build using the default task, simply run the following :
-
-```bash
-grunt
-```
-
-## Tests
-
-Tests are available in the `tests/` directory.
-
-You can either trigger them using `Jasmine JS` and its HTML presenter by opening `tests/index.html` in a browser, or trigger the following commands :
-
-```bash
-# Using grunt
-grunt test
-
-# Using NPM
-npm test
-```
-
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHQarroum%2Ftimed-cache.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FHQarroum%2Ftimed-cache?ref=badge_large)
