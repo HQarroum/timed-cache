@@ -16,14 +16,20 @@
 const has = (obj, key) => obj !== null && Object.prototype.hasOwnProperty.call(obj, key);
 
 /**
+ * A prefix used to forbid access to internal properties
+ * of the object storage.
+ */
+const prefix = '__cache__';
+
+/**
  * If the key is an object, we serialize it, so it
  * can be cached transparently.
  */
 const serialize = function (key) {
   if (typeof key !== 'string') {
-    return (this.prefix + JSON.stringify(key));
+    return (prefix + JSON.stringify(key));
   }
-  return (this.prefix + key);
+  return (prefix + key);
 };
 
 class Cache {
@@ -42,9 +48,6 @@ class Cache {
     // or a user value if it is passed to the
     // constructor.
     this.defaultTtl = options.defaultTtl || 60 * 1000;
-    // A prefix used to forbid access to internal properties
-    // of the object storage.
-    this.prefix = '__cache__';
   }
 
   /**
@@ -53,7 +56,7 @@ class Cache {
   put(key, value, options) {
     const ttl  = (options ? options.ttl : undefined) || this.defaultTtl;
     const callback = (options ? options.callback : undefined) || function () {};
-    const key_ = serialize.call(this, key);
+    const key_ = serialize(key);
   
     // Checking whether the given key already
     // has a value.
@@ -80,7 +83,7 @@ class Cache {
    * value otherwise.
    */
   get(key) {
-    const value = this.cache[serialize.call(this, key)];
+    const value = this.cache[serialize(key)];
     return (value && value.data);
   }
 
@@ -89,7 +92,7 @@ class Cache {
    * with the given `key`.
    */
   remove(key) {
-    const key_  = serialize.call(this, key);
+    const key_  = serialize(key);
     const value = this.cache[key_];
   
     if (value) {
