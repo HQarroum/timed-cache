@@ -1,12 +1,12 @@
-<p align="center">
+<br /><p align="center">
  <img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Applications-database.svg/240px-Applications-database.svg.png" />
-</p>
+</p><br />
 
 ## Cache storage
 
-[![Build Status](https://travis-ci.org/HQarroum/timed-cache.svg?branch=master)](https://travis-ci.org/HQarroum/timed-cache)
+[![Build Status](https://app.travis-ci.com/HQarroum/timed-cache.svg?branch=master)](https://app.travis-ci.com/HQarroum/timed-cache)
 [![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/timed-cache/badge)](https://www.codefactor.io/repository/github/hqarroum/timed-cache)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHQarroum%2Ftimed-cache.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHQarroum%2Ftimed-cache?ref=badge_shield)
+
 
 A minimalist time-based caching system.
 
