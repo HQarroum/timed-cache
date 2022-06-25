@@ -4,7 +4,7 @@ import Cache from '../cache.js';
  * Configuration test plan.
  */
 describe('Cache storage', () => {
-    let cache = void 0;
+    let cache = null;
 
     /**
      * On each test, we create a new cache storage.
@@ -109,7 +109,7 @@ describe('Cache storage', () => {
 });
 
 describe('Time-based cache', () => {
-  let cache = void 0;
+  let cache = null;
 
   /**
    * On each test, we create a new cache storage.
@@ -152,7 +152,7 @@ describe('Time-based cache', () => {
     cache.put('foobar', 'baz');
 
     // Awaiting for the element to be evicted.
-    setTimeout(function () {
+    setTimeout(() => {
       expect(cache.get('foobar')).toBe(undefined);
       // Restoring the default cached elements ttl.
       cache.defaultTtl = originalTtl;
