@@ -4,17 +4,17 @@ import Cache from '../cache.js';
  * Configuration test plan.
  */
 describe('Cache storage', () => {
-    let cache;
+    let cache = void 0;
 
     /**
      * On each test, we create a new cache storage.
      */
-    beforeEach(() => cache = new Cache());
+    beforeEach(() => (cache = new Cache()));
 
     /**
      * After each test, we clear the cache storage.
      */
-    afterEach(() => cache.clear());
+    afterEach(() => (cache.clear()));
 
     /**
      * Insertion test.
@@ -109,17 +109,17 @@ describe('Cache storage', () => {
 });
 
 describe('Time-based cache', () => {
-  let cache;
+  let cache = void 0;
 
   /**
    * On each test, we create a new cache storage.
    */
-  beforeEach(() => cache = new Cache());
+  beforeEach(() => (cache = new Cache()));
 
-    /**
-    * After each test, we clear the cache storage.
-    */
-  afterEach(() => cache.clear());
+  /**
+   * After each test, we clear the cache storage.
+   */
+  afterEach(() => (cache.clear()));
 
   /**
    * The elements time-to-live.
