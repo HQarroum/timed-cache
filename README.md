@@ -6,7 +6,7 @@
 
 [![Build Status](https://app.travis-ci.com/HQarroum/timed-cache.svg?branch=master)](https://app.travis-ci.com/HQarroum/timed-cache)
 [![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/timed-cache/badge)](https://www.codefactor.io/repository/github/hqarroum/timed-cache)
-
+[![DeepSource](https://deepsource.io/gh/HQarroum/timed-cache.svg/?label=active+issues&show_trend=true&token=3BI4ee76_7OTVBAzTvku0WQj)](https://deepsource.io/gh/HQarroum/timed-cache/?ref=repository-badge)
 
 A minimalist time-based caching system.
 
