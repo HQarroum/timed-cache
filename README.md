@@ -22,9 +22,15 @@ npm install --save timed-cache
 
 ## Usage
 
-You will first have to require the `timed-cache` module in your application in order to use it.
+### Import the cache module
 
-The module can be required in an AMD manner, using node's `require` or using the `Cache` variable exported in the global namespace in the context of a browser.
+`timed-cache` is distributed as an ESM module that you can import in your implementation.
+
+```javascript
+import Cache from 'timed-cache';
+```
+
+### Creating the cache module
 
 Basic operations you can perform on an instance of a `Cache` are insertion, retrieval and removal of key/value pairs.
 
