@@ -73,6 +73,7 @@ class Cache {
     // We then create a new timeout function for
     // the new value.
     const handle = setTimeout(() => this.remove(key), ttl);
+    handle.unref();
   
     // And we save the value into the cache storage
     // with the handle.
